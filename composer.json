@@ -1,0 +1,12 @@
+{
+    "name": "kinsh/postaldata",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kinshuk Vasisht",
+            "email": "kinshukvasishtsmart@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,2 +1,3 @@
 error_log.txt
 config.php
+/vendor/

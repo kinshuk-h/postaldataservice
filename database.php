@@ -1,12 +1,19 @@
 <?php
 
-require_once "config.php";
+if(!@include_once("config.php")) {
+    define("DBHOST", getenv("DBHOST"));
+    define('DBPORT', getenv("DBPORT"));
+    define("DBUSER", getenv("DBUSER"));
+    define("DBPASS", getenv("DBPASS"));
+    define("DBNAME", getenv("DBNAME"));
+    define("DB_SQL", "pgsql");
+}
 
 class PostalDatabaseConnection {
     private $db_conn;
 
     public function __construct() {
-        $this->db_conn = new PDO("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSER, DBPASS);
+        $this->db_conn = new PDO(DB_SQL.":host=".DBHOST.";port=".DBPORT.";dbname=".DBNAME, DBUSER, DBPASS);
         $this->db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     public function __destruct() {
