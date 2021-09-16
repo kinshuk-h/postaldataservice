@@ -174,7 +174,10 @@
             </section>
         </article>
         <article class="container block">
-            <?php $old_pincodes = $postal_data->get_pincodes(); ?>
+            <?php
+                $old_pincodes = $postal_data->get_pincodes();
+                echo "<pre>".var_dump($old_pincodes)."</pre>";
+            ?>
             <section class="box <?= count($old_pincodes) > 0 ? "" : "hidden" ?>">
                 <h4 class="subtitle">
                     List of Postal Codes previously recorded:
