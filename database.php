@@ -1,9 +1,6 @@
 <?php
 
-define("DBHOST", "localhost");
-define("DBUSER", "root");
-define("DBPASS", "qwertyuiop@A1");
-define("DBNAME", "postaldata");
+require_once "config.php";
 
 class PostalDatabaseConnection {
     private $db_conn;
