@@ -29,7 +29,7 @@ class PostalDatabaseConnection {
         $this->db_conn->commit();
     }
     public function get_post_offices($pincode) {
-        $stmt = $this->db_conn->prepare("SELECT * FROM post_offices WHERE Pincode=$pincode");
+        $stmt = $this->db_conn->prepare("SELECT * FROM post_offices WHERE \"Pincode\"=$pincode");
         $stmt->execute(); return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function save_pincode($pincode, $data) {
@@ -43,11 +43,11 @@ class PostalDatabaseConnection {
         $this->db_conn->commit();
     }
     public function get_pincode($pincode) {
-        $stmt = $this->db_conn->prepare("SELECT * FROM indices WHERE Pincode=$pincode");
+        $stmt = $this->db_conn->prepare("SELECT * FROM indices WHERE \"Pincode\"=$pincode");
         $stmt->execute(); return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     public function get_pincodes() {
-        $stmt = $this->db_conn->prepare("SELECT * FROM indices ORDER BY State ASC, Pincode ASC");
+        $stmt = $this->db_conn->prepare("SELECT * FROM indices ORDER BY \"State\" ASC, \"Pincode\" ASC");
         $stmt->execute(); return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
